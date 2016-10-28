@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AC5A4F7F1C68C6A7C5ECE197F6CEE6142BB283E5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "47A88653467774A6E60A410F6E0C861D4D23678F" : 0,
+    "AC5A4F7F1C68C6A7C5ECE197F6CEE6142BB283E5" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4CC4548F-2DB3-455B-AB4B-977BC222FE6D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "47A88653467774A6E60A410F6E0C861D4D23678F" : "..",
+    "AC5A4F7F1C68C6A7C5ECE197F6CEE6142BB283E5" : "MiniFacebook\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MiniFacebook",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MiniFacebook\/MiniFacebook.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hyukssang\/SwiftLab.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "47A88653467774A6E60A410F6E0C861D4D23678F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hyukssang\/Facebook-style-Photo-View.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AC5A4F7F1C68C6A7C5ECE197F6CEE6142BB283E5"
+    }
+  ]
+}
