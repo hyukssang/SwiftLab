@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,8 +21,25 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="urX-B9-dkO" customClass="CalendarView" customModule="RCCalendarView" customModuleProvider="target">
+                                <rect key="frame" x="16" y="208" width="343" height="420"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="420" id="M8s-wv-aZX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="urX-B9-dkO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6m4-9m-MTr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="urX-B9-dkO" secondAttribute="trailing" id="OBY-Uj-pvS"/>
+                            <constraint firstItem="urX-B9-dkO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="84.5" id="uPM-3R-69Q"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calendarView" destination="urX-B9-dkO" id="EqX-p5-1fh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
