@@ -23,18 +23,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="urX-B9-dkO" customClass="CalendarView" customModule="RCCalendarView" customModuleProvider="target">
-                                <rect key="frame" x="16" y="208" width="343" height="420"/>
+                                <rect key="frame" x="16" y="123" width="343" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="420" id="M8s-wv-aZX"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="urX-B9-dkO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6m4-9m-MTr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="urX-B9-dkO" secondAttribute="trailing" id="OBY-Uj-pvS"/>
-                            <constraint firstItem="urX-B9-dkO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="84.5" id="uPM-3R-69Q"/>
+                            <constraint firstItem="urX-B9-dkO" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ULi-WH-cI5"/>
+                            <constraint firstItem="urX-B9-dkO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="103" id="by3-tu-Eac"/>
+                            <constraint firstItem="urX-B9-dkO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fG0-wY-Qyo"/>
+                            <constraint firstItem="urX-B9-dkO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qLS-Ht-1ur"/>
                         </constraints>
                     </view>
                     <connections>

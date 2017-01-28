@@ -23,7 +23,7 @@ class ViewController: UIViewController{
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
-		self.calendarView.showCurrentCalendar()
+		self.calendarView.showCurrentMonth()
 	}
 }
 

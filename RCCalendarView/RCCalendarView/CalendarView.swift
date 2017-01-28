@@ -19,7 +19,7 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 		
 		let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
 		collectionView.isPagingEnabled = true
-		collectionView.backgroundColor = UIColor.blue
+		collectionView.backgroundColor = UIColor.white
 		
 		collectionView.register(CalendarContainerCollectionViewCell.self, forCellWithReuseIdentifier: CalendarContainerCollectionViewCell.cellID)
 		collectionView.dataSource = self
@@ -44,12 +44,6 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 		self.setupViews()
 		self.setupConstraints()
 	}
-	override func didAddSubview(_ subview: UIView) {
-		super.didAddSubview(subview)
-		print("didaddsubview")
-		self.calendarContainerCollectionView.scrollToItem(at: defaultIndexPath, at: .centeredHorizontally, animated: false)
-	}
-	
 	
 	func initDateInStartingMonth(){
 		let currentDate = Date()
@@ -60,6 +54,7 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 	}
 	
 	func setupViews(){
+		self.isHidden = true
 		self.addSubview(self.calendarContainerCollectionView)
 	}
 	func setupConstraints(){
@@ -85,15 +80,18 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 	}
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		
+		let monthLabelHeight: CGFloat = 20
+		let monthLabelBottomMargin: CGFloat = 20
 		// 16:10 Ratio cells
 		let cellWidth: CGFloat = collectionView.frame.width
 		let ratioComponentLength: CGFloat = cellWidth/16
-		let cellHeight: CGFloat = ratioComponentLength * 10
+		let cellHeight: CGFloat = ratioComponentLength * 10 + monthLabelHeight
 		
 		return CGSize(width: cellWidth, height: cellHeight)
 	}
 	
-	func showCurrentCalendar(){
+	func showCurrentMonth(){
 		self.calendarContainerCollectionView.scrollToItem(at: defaultIndexPath, at: .centeredHorizontally, animated: false)
+		self.isHidden = false
 	}
 }

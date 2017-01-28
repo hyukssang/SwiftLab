@@ -15,6 +15,7 @@ class MonthlyCalendarCollectionViewCell: UICollectionViewCell{
 	
 	let dayLabel: UILabel = {
 		let label = UILabel()
+		label.font = UIFont(name: "Futura", size: 17)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
@@ -36,5 +37,9 @@ class MonthlyCalendarCollectionViewCell: UICollectionViewCell{
 	func setupConstraints(){
 		self.dayLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
 		self.dayLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+	}
+	
+	func colorLabel(with color: UIColor){
+		self.dayLabel.textColor = color
 	}
 }

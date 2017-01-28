@@ -15,19 +15,29 @@ class CalendarContainerCollectionViewCell: UICollectionViewCell, UICollectionVie
 	let NUM_DAYS = 7
 	let WEEKDAYS: [String] = ["S", "M", "T", "W", "T", "F", "S"]
 	
+	let monthLabel: UILabel = {
+		let label = UILabel()
+		label.textAlignment = .center
+		label.font = UIFont(name: "Futura", size: 17)
+		label.font = UIFont.boldSystemFont(ofSize: 17)
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()
+	
 	lazy var monthlyCalendarCollectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
 		layout.minimumInteritemSpacing = 0
 		layout.minimumLineSpacing = 0
 		
 		let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-		collectionView.backgroundColor = UIColor.red
-		collectionView.translatesAutoresizingMaskIntoConstraints = false
+		collectionView.backgroundColor = UIColor.white
+		collectionView.isScrollEnabled = false
 		
 		collectionView.setCollectionViewLayout(layout, animated: true)
 		collectionView.register(MonthlyCalendarCollectionViewCell.self, forCellWithReuseIdentifier: MonthlyCalendarCollectionViewCell.cellID)
 		collectionView.dataSource = self
 		collectionView.delegate = self
+		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		return collectionView
 	}()
 	
@@ -45,10 +55,14 @@ class CalendarContainerCollectionViewCell: UICollectionViewCell, UICollectionVie
 	}
 	
 	func setupViews(){
+		self.contentView.addSubview(self.monthLabel)
 		self.contentView.addSubview(self.monthlyCalendarCollectionView)
 	}
 	func setupConstraints(){
-		self.monthlyCalendarCollectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+		self.monthLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+		self.monthLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
+		
+		self.monthlyCalendarCollectionView.topAnchor.constraint(equalTo: self.monthLabel.bottomAnchor, constant: 20).isActive = true
 		self.monthlyCalendarCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
 		self.monthlyCalendarCollectionView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor).isActive = true
 		self.monthlyCalendarCollectionView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor).isActive = true
@@ -69,15 +83,15 @@ class CalendarContainerCollectionViewCell: UICollectionViewCell, UICollectionVie
 		if let month = self.monthlyCalendar{
 			switch indexPath.row{
 			case 0..<NUM_DAYS:
-				let weekDay = "\(WEEKDAYS[indexPath.row])"
-				cell?.dayLabel.text = weekDay
+				cell?.dayLabel.text = "\(WEEKDAYS[indexPath.row])"
+				cell?.colorLabel(with: UIColor.gray)
 			case NUM_DAYS + month.numEmptyCellsFront ..< (NUM_DAYS + month.numEmptyCellsFront + month.dates.count):
 				let offset = NUM_DAYS + month.numEmptyCellsFront
 				let newIndex = indexPath.row - offset
 				let date = month.dates[newIndex]
 				let day = Calendar.current.dateComponents([.day], from: date!).day!
-				cell?.backgroundColor = UIColor.gray
 				cell?.dayLabel.text = "\(day)"
+				cell?.colorLabel(with: UIColor.black)
 			default:
 				cell?.dayLabel.text = ""
 			}
@@ -114,6 +128,11 @@ class CalendarContainerCollectionViewCell: UICollectionViewCell, UICollectionVie
 				self.monthlyCalendar?.dates.append(date)
 			}
 		}
+		
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "MMMM"
+		let formattedDate = dateFormatter.string(from: date)
+		self.monthLabel.text = formattedDate
 		
 		self.monthlyCalendarCollectionView.reloadData()
 	}
